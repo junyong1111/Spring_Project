@@ -7,3 +7,7 @@ SpringBoot Study
 
 2. ch2_Spring_Exercise
 - Componet
+
+3. ch3.spring_jpa
+- JDBC
+- JPA
