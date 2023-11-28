@@ -9,5 +9,13 @@ SpringBoot Study
 - Componet
 
 3. ch3.spring_jpa
-- JDBC
-- JPA
+- Spring JDBC
+- Spring JPA
+
+4. ch4. TodoList_Projcet
+- BootStrap
+- JSP(Java Server Page)
+- JSTL(JSP 표준 태그 라이브러리로 자바코드를 html태그형식으로 간편하게 사용하기 위해 나온 라이브러리)
+- Spring Boot Stater Validation
+- Spring Security
+- Spring JPA
