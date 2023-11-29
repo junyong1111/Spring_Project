@@ -13,6 +13,8 @@
                     <th>Description</th>
                     <th>Target Date</th>
                     <th>Is Done?</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <c:forEach items = "${todos}" var = "mylist">
                 <tr>
@@ -20,6 +22,8 @@
                     <td>${mylist.description}</td>
                     <td>${mylist.targetDate}</td>
                     <td>${mylist.done}</td>
+                    <td><a href="delete-todo?id=${mylist.id}" class="btn btn-warning">Delete${mylist.id}</td>
+                    <td><a href="update-todo?id=${mylist.id}" class="btn btn-success">Update${mylist.id}</td>
                 <tr>
                 </c:forEach>
             </table>
