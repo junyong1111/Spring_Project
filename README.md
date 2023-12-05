@@ -139,3 +139,19 @@ ex)
 - class = "table" : 표를 더 깔끔하게
 
 - class = "btn btn-success : 버튼 클릭 생성
+
+### Spring Security
+
+로그인과 로그아웃에 관련된 기능을 쉽게 구현할 수 있음
+
+
+
+로그인 구현
+
+Spring Security 의존성 추가
+
+implementation 'org.springframework.boot:spring-boot-starter-security'
+
+의존성을 추가하는것만으로 자동으로 로그인 페이지로 넘어가진다.
+
+개발자 전용 id : user pw : 디버깅 창에서 나오는 패스워드
