@@ -20,3 +20,10 @@ SpringBoot Study
 - Spring Security
 - Spring JPA
 - Docker + MySql
+
+5. ch5.SNS_Project_with_REST_API 
+- REST API
+- Validation
+- Exception
+- OPEN API
+- Swagger
