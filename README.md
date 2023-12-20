@@ -30,3 +30,12 @@ SpringBoot Study
 - Mysql
 
 6. ch6.FullStack_Project with React
+- React
+  - JWT
+  - DOM
+
+- Spring
+  - Spring Boot
+  - Spring Security
+  - REST API
+
