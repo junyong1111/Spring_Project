@@ -13,6 +13,7 @@ export default function TodoComponent(){
     const username = authContext.username
     const [description, setDescription] = useState('')
     const [targetDate, setTargetDate] = useState('')
+    const [done, setDone] = useState(false)
     const navigate = useNavigate()
 
     useEffect(
@@ -28,6 +29,7 @@ export default function TodoComponent(){
                 console.log(response)
                 setDescription(response.data.description)
                 setTargetDate(response.data.targetDate)
+                setDone(response.data.done)
             }
             
             )
@@ -41,7 +43,7 @@ export default function TodoComponent(){
             username : username,
             description : values.description,
             targetDate : values.targetDate,
-            done : false
+            done : values.done
         }
         if(id ===-1){
             createTodoApi(username, todo)
@@ -76,7 +78,7 @@ export default function TodoComponent(){
         <div className="container">
             <h1>Todo Details</h1>
             <div>
-                <Formik initialValues={ {description, targetDate} }
+                <Formik initialValues={ {description, targetDate, done} }
                 enableReinitialize = {true}
                 onSubmit={onSubmit}
                 validate={validate}
@@ -101,10 +103,17 @@ export default function TodoComponent(){
                                 <label>description</label>
                                 <Field type="text" className="form-control" name="description"/>
                             </fieldset>
+
                             <fieldset className="form-group">
                                 <label>TargetDate</label>
                                 <Field type="date" className="form-control" name="targetDate"/>
                             </fieldset>
+
+                            <fieldset className="checkbox-group">
+                                <label>Complete</label>
+                                <div><Field type="checkbox" name="done"/></div>
+                            </fieldset>
+
                             <div>
                                 <button className='btn btn-success m-5' type="submit">저장</button>
                             </div>

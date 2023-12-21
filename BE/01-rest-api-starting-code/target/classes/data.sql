@@ -1,0 +1,8 @@
+--insert into todo (id, description, done, target_date, username)
+--values(10001, 'Learn AWS EC2', false, CURRENT_DATE(), 'PARK');
+--
+--insert into todo (id, description, done, target_date, username)
+--values(10002, 'Learn Google Cloud', false, CURRENT_DATE(), 'PARK');
+--
+--insert into todo (id, description, done, target_date, username)
+--values(10003, 'Learn DevOps', false, CURRENT_DATE(), 'PARK');

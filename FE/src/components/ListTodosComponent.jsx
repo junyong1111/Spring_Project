@@ -4,9 +4,7 @@ import { useAuth } from "../security/AuthContext"
 import {deleteTodoApi, retrieveAllTodosForuserApi} from './api/TodoApiService'
 
 function ListTodosComponent() {
-
-    const today = new Date()
-    const targetDate = new Date(today.getFullYear()+12, today.getMonth(), today.getDay())
+    
     const [todos,setTodos] = useState([])
     const [message,setMessage] = useState(null)
     const authContext = useAuth()
@@ -15,7 +13,8 @@ function ListTodosComponent() {
     const navigate = useNavigate()
     
     useEffect(
-        () => refreshTodos(), []
+        () => refreshTodos(), 
+        [refreshTodos]
     )
     
     function refreshTodos(){

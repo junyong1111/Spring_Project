@@ -1,3 +1,6 @@
+<img width="1365" alt="스크린샷 2023-12-21 오후 5 02 38" src="https://github.com/junyong1111/Spring_Project/assets/79856225/70ad2402-1af3-4b10-9d21-e5144fcf1159">
+
+
 ### React 프론트엔드와 REST API 통합
 
 
@@ -177,3 +180,4 @@ https://github.com/in28minutes/master-spring-and-spring-boot/blob/main/13-full-s
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
 </dependency>
+
