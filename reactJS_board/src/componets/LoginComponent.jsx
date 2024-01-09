@@ -2,24 +2,20 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS 추가
-import { postSignupApi } from '../api/UsersApi';
+import { postLoginApi } from '../api/UsersApi';
 import {goMainPage} from '../navi/QuestionNavi'
 import { useNavigate } from 'react-router-dom';
 
 
-const SignupComponent = () => {
+const LoginComponent = () => {
   const formik = useFormik({
     initialValues: {
       username: '',
-      email: '',
       password: ''
     },
     validationSchema: Yup.object({
       username: Yup.string()
         .max(15, '15자 이내로 입력해주세요')
-        .required('필수 입력 사항입니다'),
-      email: Yup.string()
-        .email('유효하지 않은 이메일 주소입니다')
         .required('필수 입력 사항입니다'),
       password: Yup.string()
         .min(6, '비밀번호는 6자 이상이어야 합니다')
@@ -28,24 +24,23 @@ const SignupComponent = () => {
     onSubmit: values => {
         const User = {
             username : values.username,
-            email : values.email,
             password : values.password,
         }
-        postUser(User) 
+        console.log("로그인 요청")
+        postLogin(User)
         
     },
   });
   const navigator = useNavigate()
-  const postUser = async(User) =>{
-    const response = await postSignupApi(User)
-    if (response.data ==="회원가입 완료"){
-      alert(response.data) // 팝업 메시지 추가
+  const postLogin = async(User) =>{
+    const response = await postLoginApi(User)
+    if (response.data ===""){
+      alert("로그인 되었습니다.") // 팝업 메시지 추가
       goMainPage(navigator)
     }
     else{
-      alert("이미 등록된 아이디 또는 이메일입니다.")
+      alert("아이디 또는 비밀번호를 확인해주세요")
     }
-
   }
 
   return (
@@ -54,7 +49,7 @@ const SignupComponent = () => {
         <div className="col-md-6">
           <div className="card shadow">
             <div className="card-body">
-              <h2 className="card-title text-center">회원가입</h2>
+              <h2 className="card-title text-center">로그인</h2>
               <form onSubmit={formik.handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="username">사용자 이름</label>
@@ -72,21 +67,6 @@ const SignupComponent = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">이메일</label>
-                  <input
-                    className="form-control"
-                    id="email"
-                    name="email"
-                    type="email"
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
-                  />
-                  {formik.touched.email && formik.errors.email ? (
-                    <div className="text-danger">{formik.errors.email}</div>
-                  ) : null}
-                </div>
-
-                <div className="form-group">
                   <label htmlFor="password">비밀번호</label>
                   <input
                     className="form-control"
@@ -100,8 +80,9 @@ const SignupComponent = () => {
                     <div className="text-danger">{formik.errors.password}</div>
                   ) : null}
                 </div>
-
-                <button type="submit" className="Btn">가입하기</button>
+                <div style={{textAlign:"center", marginTop:10}}>
+                <button type="submit" className="Btn">로그인</button>
+                </div>
               </form>
             </div>
           </div>
@@ -111,4 +92,4 @@ const SignupComponent = () => {
   );
 };
 
-export default SignupComponent;
+export default LoginComponent;

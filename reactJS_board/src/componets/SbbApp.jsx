@@ -6,6 +6,7 @@ import QuestionDetailComponent from "./QuestionDetailComponent"
 import HeaderComponent from "./HeaderComponent"
 import Signupcomponent from "./SignupComponent"
 import "./SbbApp.css"
+import LoginComponent from "./LoginComponent"
 
 export default function SbbApp(){
     return(
@@ -16,6 +17,7 @@ export default function SbbApp(){
             {/* <Route path ='/' element={<WelecomeComponent/>}></Route> */}
                 <Route path="/" element ={<WelcomeComponent/>}></Route>
                 <Route path="/signup" element ={<Signupcomponent/>}></Route>
+                <Route path="/login" element ={<LoginComponent/>}></Route>
                 <Route path="/questions" element ={<QuestionsComponent/>}></Route>
                 <Route path="/question/:id" element ={<QuestionDetailComponent/>}></Route>
                 <Route path="/questions/save" element ={<QuestionSaveComponent/>}></Route>

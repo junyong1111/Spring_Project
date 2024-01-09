@@ -37,7 +37,7 @@ export default function QuestionsComponent(){
                 </thead>
                 <tbody>
                     {
-                        !questions.length ===0 &&questions.map(
+                       questions.map(
                             question => (
                                 <tr key={question.id}>
                                     <td>
@@ -60,13 +60,13 @@ export default function QuestionsComponent(){
             </ul>
             </div> */}
             
-            <div className="container">
+            <div className="container" style={{textAlign:"center"}}>
                 <button className="btn btn-success p"
                 onClick={
                     () => goMainPage(navigator)
                 }>Go Home</button>
                 
-                    <button className="btn btn-dark"
+                    <button className="btn btn-dark" style={{marginLeft:10}}
                     onClick={
                         () => createQuestionNavi(navigator)
                     }>질문 하기</button>
