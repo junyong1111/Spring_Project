@@ -1,0 +1,14 @@
+.home-title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 30px;
+}
+
+.Btn{
+    background-color: tomato;
+    color : white;
+    border-radius: 30px;
+    padding: 10px 15px;
+    border: 0;
+    font-size: 20px;
+}

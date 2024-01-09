@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { getQuestionsNavi, createQuestionNavi } from "../navi/QuestionNavi";
+import { goSignupPage } from "../navi/UserNavi";
 
 export default function WelcomeComponent(){
     const navigator = useNavigate()
     return(
-        <div className="container">
+        <div className="home-title">
             <h1>WelcomeToMyPage</h1>
-            <button className="btn btn-primary" style={{marginBottom:10}} onClick={
-                () => console.log("회원가입 페이지 ")
+            <button className="Btn" style={{marginBottom:10}} onClick={
+                () => goSignupPage(navigator)
             }>회원가입</button>
             <div className="container">
                 <button className="btn btn-success" onClick={

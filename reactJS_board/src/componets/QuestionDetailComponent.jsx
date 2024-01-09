@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getQuestionApi } from "../api/QuestionsApi"
 import { postAnswerApi } from "../api/AnswersApi"
 import { useNavigate, useParams } from "react-router-dom"
-import { getQuestionsNavi, getQuestionNavi} from "../navi/QuestionNavi"
+import { getQuestionsNavi} from "../navi/QuestionNavi"
 import { ErrorMessage, Field, Form, Formik } from "formik"
 import AnswerComponet from "./AnswerComponent"
 

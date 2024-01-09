@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
 import { getAllQuestionsApi } from "../api/QuestionsApi"
 import { createQuestionNavi, goMainPage } from "../navi/QuestionNavi"
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function QuestionsComponent(){
     const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
     const [questions, setQuestions] = useState([])
     const navigator = useNavigate()
-    const [page, setPage] = useState("0")
 
     useEffect(
         () => getAllQuestions(),
@@ -15,10 +14,9 @@ export default function QuestionsComponent(){
     )
 
     function getAllQuestions(){
-        getAllQuestionsApi(page)
+        getAllQuestionsApi(0)
         .then(
             (response) => {
-                // console.log(response)
                 setQuestions(response.data)
             }
         )
@@ -39,7 +37,7 @@ export default function QuestionsComponent(){
                 </thead>
                 <tbody>
                     {
-                        !questions.length ==0 &&questions.map(
+                        !questions.length ===0 &&questions.map(
                             question => (
                                 <tr key={question.id}>
                                     <td>
