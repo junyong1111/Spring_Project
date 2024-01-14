@@ -1,6 +1,10 @@
 import {Link} from 'react-router-dom'
+import { useAuth } from '../security/AuthContext'
 
 function HeaderComponent() {
+    const authContext = useAuth()
+
+
 
     return (
         
@@ -22,10 +26,15 @@ function HeaderComponent() {
                         </div>
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                {
+                                { !authContext.isAuthenticated &&
                                     <Link className="nav-link" to="/login">Login</Link> }
                             </li>
-                            
+                        </ul>
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                { authContext.isAuthenticated &&
+                                    <Link className="nav-link" to="/logout">Logout</Link> }
+                            </li>
                         </ul>
                     </nav>
                 </div>

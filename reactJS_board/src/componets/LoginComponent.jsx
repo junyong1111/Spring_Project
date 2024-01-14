@@ -1,13 +1,15 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS 추가
-import { postLoginApi } from '../api/UsersApi';
 import {goMainPage} from '../navi/QuestionNavi'
 import { useNavigate } from 'react-router-dom';
+import {useAuth} from '../security/AuthContext.js'
+import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS 추가
 
-
-const LoginComponent = () => {
+export default function LoginComponent(){
+  const authContext = useAuth()
+  const navigator = useNavigate()
+  
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -27,21 +29,15 @@ const LoginComponent = () => {
             password : values.password,
         }
         console.log("로그인 요청")
-        postLogin(User)
-        
+        authContext.login(User)
+
+        if (authContext.isAuthenticated === true){
+          goMainPage(navigator)
+        }
     },
   });
-  const navigator = useNavigate()
-  const postLogin = async(User) =>{
-    const response = await postLoginApi(User)
-    if (response.data ==="로그인 성공"){
-      alert("로그인 되었습니다.") // 팝업 메시지 추가
-      goMainPage(navigator)
-    }
-    else{
-      alert("아이디 또는 비밀번호를 확인해주세요")
-    }
-  }
+  
+  
 
   return (
     <div className="container mt-5">
@@ -90,6 +86,4 @@ const LoginComponent = () => {
       </div>
     </div>
   );
-};
-
-export default LoginComponent;
+}

@@ -3,7 +3,6 @@ import { postLoginApi } from "../api/UsersApi"
 
 //1: 문맥 생성
 export const AuthContext = createContext()
-
 export const useAuth = () => useContext(AuthContext)
 
 //2: 다른 컴포넌트와 공유할 문맥 셋팅

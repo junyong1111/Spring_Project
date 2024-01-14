@@ -7,20 +7,22 @@ import HeaderComponent from "./HeaderComponent"
 import Signupcomponent from "./SignupComponent"
 import LoginComponent from "./LoginComponent"
 import "./SbbApp.css"
-import { useAuth } from "../security/AuthContext"
+import AuthProvider, { useAuth } from "../security/AuthContext"
 
 function AuthenticateRoute({children}){
     const authContext = useAuth();
     console.log(authContext)
-    
-    
-    //     return children
+
+    if (authContext.isAuthenticated){
+        return children;
+    }
     return <Navigate to="/"/>
 }
 
 export default function SbbApp(){
     return(
         <div className="SbbApp">
+            <AuthProvider>
             <BrowserRouter>
             <HeaderComponent/>
             <Routes>
@@ -30,7 +32,7 @@ export default function SbbApp(){
                 <Route path="/login" element ={<LoginComponent/>}></Route>
                 {/* 아래 페이지부터는 로그인 필요  */}
                 <Route path="/questions" element ={
-                <AuthenticateRoute>
+                <AuthenticateRoute>/
                 <QuestionsComponent/>
                 </AuthenticateRoute>
                  }></Route>
@@ -39,7 +41,7 @@ export default function SbbApp(){
                 
             </Routes>
             </BrowserRouter>
-            
+            </AuthProvider>
         </div>
     )
 }

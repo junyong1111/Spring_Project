@@ -14,6 +14,7 @@ export default function WelcomeComponent(){
                 <button className="btn btn-success" onClick={
                     () =>createQuestionNavi(navigator)
                 } style={{marginRight:10}}>질문 등록</button>
+                
                 <button className="btn btn-dark" onClick={
                     () => getQuestionsNavi(navigator)
                 } >질문 목록</button>
