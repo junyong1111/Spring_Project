@@ -34,7 +34,7 @@ const LoginComponent = () => {
   const navigator = useNavigate()
   const postLogin = async(User) =>{
     const response = await postLoginApi(User)
-    if (response.data ===""){
+    if (response.data ==="로그인 성공"){
       alert("로그인 되었습니다.") // 팝업 메시지 추가
       goMainPage(navigator)
     }

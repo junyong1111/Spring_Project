@@ -29,8 +29,15 @@ public class MainController {
     }    
 
     @PostMapping("/user/login")
-    public void signin(@RequestBody UserLoginDto userLoginDto){
-        uService.loadUserByUsername(userLoginDto.getUsername());
+    public String signin(@RequestBody UserLoginDto userLoginDto){
+        try {
+            uService.loadUserByUsername(userLoginDto.getUsername());
+            return "로그인 성공";
+        } catch (Exception e) {
+            // TODO: handle exception
+            return e.getMessage();
+        }
+        
     } 
 
 

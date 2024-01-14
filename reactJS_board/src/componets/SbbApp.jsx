@@ -1,12 +1,22 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import WelcomeComponent from "./WelcomeComponent"
 import QuestionsComponent from "./QuestionsComponents"
 import QuestionSaveComponent from "./QuestionSaveComponent"
 import QuestionDetailComponent from "./QuestionDetailComponent"
 import HeaderComponent from "./HeaderComponent"
 import Signupcomponent from "./SignupComponent"
-import "./SbbApp.css"
 import LoginComponent from "./LoginComponent"
+import "./SbbApp.css"
+import { useAuth } from "../security/AuthContext"
+
+function AuthenticateRoute({children}){
+    const authContext = useAuth();
+    console.log(authContext)
+    
+    
+    //     return children
+    return <Navigate to="/"/>
+}
 
 export default function SbbApp(){
     return(
@@ -18,7 +28,12 @@ export default function SbbApp(){
                 <Route path="/" element ={<WelcomeComponent/>}></Route>
                 <Route path="/signup" element ={<Signupcomponent/>}></Route>
                 <Route path="/login" element ={<LoginComponent/>}></Route>
-                <Route path="/questions" element ={<QuestionsComponent/>}></Route>
+                {/* 아래 페이지부터는 로그인 필요  */}
+                <Route path="/questions" element ={
+                <AuthenticateRoute>
+                <QuestionsComponent/>
+                </AuthenticateRoute>
+                 }></Route>
                 <Route path="/question/:id" element ={<QuestionDetailComponent/>}></Route>
                 <Route path="/questions/save" element ={<QuestionSaveComponent/>}></Route>
                 
