@@ -34,6 +34,7 @@ public class UserService implements UserDetailsService{
         return uRepository.save(user);
     }
 
+    
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
         Optional<SiteUser> _siteUser = this.uRepository.findByusername(username);
