@@ -20,14 +20,13 @@ export default function AnswerComponet({initialValues}){
     }, [initialValues]); 
     
     return(
-        <div className="container">
+        <div className="container" style ={{display:"flex",justifyContent:"center"}}>
             <h3>{initialValues}번 질문의 답변은 {answers.length}개 입니다.</h3>
             <ul>
                 {answers.map((answer, index) => (
                     <li key={index} style={{width:'200px', margin: '0 auto'}}>
                         <p style={{margin: 0}}>내용: {answer.content}</p>
                         <p>작성일: {new Intl.DateTimeFormat('ko-KR', options).format(new Date(answer.createDate))}</p>
-
                     </li>
                 ))}
             </ul>

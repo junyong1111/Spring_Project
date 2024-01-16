@@ -6,8 +6,6 @@ import { useState } from "react";
 
 export default function QuestionSaveComponent(){
     const navigator = useNavigate()
-    const subject = useState("")
-    const content = useState("")
 
     function onSubmit(values){
         const question = {
@@ -49,7 +47,7 @@ export default function QuestionSaveComponent(){
         <div className="container">
         <h1>게시글 등록</h1>
         <div>
-            <Formik initialValues={ {subject, content} }
+            <Formik initialValues={ {subject:"제목을 입력해주세요.", content:"내용을 입력해주세요."} }
             enableReinitialize = {true}
             onSubmit={onSubmit}
             validate={validate}
@@ -73,6 +71,7 @@ export default function QuestionSaveComponent(){
                         <fieldset className="form-group">
                             <label>제목</label>
                             <Field type="text" className="form-control" name="subject" style={{width:'500px', margin: '0 auto'}}/>
+                            
                         </fieldset>
 
                         <fieldset className="form-group">

@@ -16,6 +16,7 @@ function AuthenticateRoute({children}){
     if (authContext.isAuthenticated){
         return children;
     }
+    alert("로그인 하셈 ;;")
     return <Navigate to="/"/>
 }
 
@@ -26,18 +27,18 @@ export default function SbbApp(){
             <BrowserRouter>
             <HeaderComponent/>
             <Routes>
-            {/* <Route path ='/' element={<WelecomeComponent/>}></Route> */}
                 <Route path="/" element ={<WelcomeComponent/>}></Route>
                 <Route path="/signup" element ={<Signupcomponent/>}></Route>
                 <Route path="/login" element ={<LoginComponent/>}></Route>
                 {/* 아래 페이지부터는 로그인 필요  */}
-                <Route path="/questions" element ={
+                <Route path="/questions"  element ={
                 <AuthenticateRoute>/
                 <QuestionsComponent/>
                 </AuthenticateRoute>
                  }></Route>
                 <Route path="/question/:id" element ={<QuestionDetailComponent/>}></Route>
                 <Route path="/questions/save" element ={<QuestionSaveComponent/>}></Route>
+                
                 
             </Routes>
             </BrowserRouter>

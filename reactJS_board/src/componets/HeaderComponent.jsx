@@ -30,10 +30,17 @@ function HeaderComponent() {
                                     <Link className="nav-link" to="/login">Login</Link> }
                             </li>
                         </ul>
-                        <ul className="navbar-nav">
+                        <ul className="navbar-nav"> 
                             <li className="nav-item">
                                 { authContext.isAuthenticated &&
-                                    <Link className="nav-link" to="/logout">Logout</Link> }
+                                    <button className="nav-link" to="/logout" onClick={
+                                        () =>{
+                                            alert("로그아웃 되었습니다.")
+                                            authContext.logout()
+                                            window.location.reload("/")
+
+                                        }
+                                    }>Logout</button> }
                             </li>
                         </ul>
                     </nav>

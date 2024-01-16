@@ -78,8 +78,8 @@ export default function QuestionDetailComponent(){
                             <fieldset>
                                 <Field type="text" className="form-control" name="answer" as="textarea"  style={{ width: '500px', height: '200px', margin: '0 auto'}}/>
                             </fieldset>
-                            <div>
-                                <button className="btn btn-success m-2" type="submit" >답변 저장</button>
+                            <div style ={{display:"flex",justifyContent:"center"}}>
+                                <button  className="btn btn-success m-2" type="submit" >답변 저장</button>
                             </div>
                         </Form>
                     )
@@ -89,12 +89,11 @@ export default function QuestionDetailComponent(){
 
             <AnswerComponet initialValues={param.id}/>
             
-            <button className="btn btn-dark" onClick={
-                () => getQuestionsNavi(navigator)
-            }>질문 목록으로</button>
-
-
-            
+            <div style ={{display:"flex",justifyContent:"center"}}>
+                <button className="btn btn-dark" onClick={
+                    () => getQuestionsNavi(navigator)
+                }>질문 목록으로</button>
+            </div>
         </div>
     )
 }

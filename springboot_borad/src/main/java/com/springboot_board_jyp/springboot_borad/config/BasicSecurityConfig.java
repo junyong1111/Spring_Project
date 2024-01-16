@@ -32,8 +32,11 @@ public class BasicSecurityConfig {
         )
         .formLogin(
             (formLogin) -> formLogin
-            // .loginPage("localhost:3000")
+            // .loginPage("/user/login")
             .defaultSuccessUrl("/")
+        )
+        .logout(
+            (logout) -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout")).logoutSuccessUrl("/").invalidateHttpSession(true)
         )
         ;
         return http.build();
